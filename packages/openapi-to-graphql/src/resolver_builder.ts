@@ -332,10 +332,10 @@ export function getResolver({
     // Make the call
     httpLog(
       `Call ${options.method.toUpperCase()} ${
-        options.url
-      }?${querystring.stringify(options.qs)}\n` +
-        `headers: ${JSON.stringify(options.headers)}\n` +
-        `request body: ${options.body}`
+      options.url
+      }?${options.qs}\n` +
+      `headers: ${JSON.stringify(options.headers)}\n` +
+      `request body: ${options.body}`
     )
 
     return new Promise((resolve, reject) => {
@@ -613,7 +613,7 @@ function createOAuthHeader(
   } else {
     httpLog(
       `Warning: could not extract OAuth token from context at ` +
-        `'${tokenJSONpath}'`
+      `'${tokenJSONpath}'`
     )
     return {}
   }
@@ -692,7 +692,7 @@ function getAuthOptions(
           default:
             throw new Error(
               `Cannot recognize http security scheme ` +
-                `'${JSON.stringify(security.def.scheme)}'`
+              `'${JSON.stringify(security.def.scheme)}'`
             )
         }
         break
@@ -921,8 +921,8 @@ function getIdentifierRecursive(path): string {
      * friends/friends/friends/user
      */
     isNaN(parseInt(path.key))
-    ? `${path.key}/${getIdentifierRecursive(path.prev)}`
-    : getIdentifierRecursive(path.prev)
+      ? `${path.key}/${getIdentifierRecursive(path.prev)}`
+      : getIdentifierRecursive(path.prev)
 }
 
 /**
